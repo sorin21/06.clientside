@@ -9,7 +9,13 @@ import SongList from './components/SongList';
 import SongCreate from "./components/SongCreate";
 import SongDetail from "./components/SongDetail";
 
-const client = new ApolloClient({});
+const client = new ApolloClient({
+  // every time when we make a query
+  // we ask for id for every record
+  // so we have to put id for every query
+  // used to refresh lyric list
+  dataIdFromObject: o => o.id
+});
 
 const Root = () => {
   return (

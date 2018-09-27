@@ -16,6 +16,9 @@ class LyricCreate extends Component {
         songId: this.props.songId   
        }
     })
+    // .then(() => this.setState({content: ''}));
+    // to clear the input faster
+    this.setState({content: ''})
   }
 
   render() {
@@ -37,7 +40,9 @@ const mutation = gql`
     addLyricToSong(content: $content, songId: $songId) {
       id
       lyrics {
-        content
+        id
+        content,
+        likes
       }
     }
   }
